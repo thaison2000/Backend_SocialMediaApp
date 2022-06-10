@@ -96,6 +96,80 @@ router.get("/friends/:id", async (req, res) => {
   }
 });
 
+//follow a user
+router.put("/:id/follow", async (req, res) => {
+  if (req.body.userId !== req.params.id) {
+    try {
+      const user = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
+      if (!user.followers.includes(req.body.userId)) {
+        await user.updateOne({ $push: { followers: req.body.userId } });
+        await currentUser.updateOne({ $push: { followings: req.params.id } });
+        res.status(200).json("user has been followed");
+      } else {
+        res.status(403).json("you allready follow this user");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  } else {
+    res.status(403).json("you cant follow yourself");
+  }
+});
 
+//unfollow a user
+router.put("/:id/unfollow", async (req, res) => {
+  if (req.body.userId !== req.params.id) {
+    try {
+      const user = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
+      if (user.followers.includes(req.body.userId)) {
+        await user.updateOne({ $pull: { followers: req.body.userId } });
+        await currentUser.updateOne({ $pull: { followings: req.params.id } });
+        res.status(200).json("user has been unfollowed");
+      } else {
+        res.status(403).json("you dont follow this user");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  } else {
+    res.status(403).json("you cant unfollow yourself");
+  }
+});
+
+//add friend
+router.put("/:id/addfriend", async (req, res) => {
+    try {
+      const receiveUser = await User.findById(req.params.id);
+      const sendUser = await User.findById(req.body.userId);
+      if (!receiveUser.friends.includes(req.body.userId)) {
+        await receiveUser.updateOne({ $push: { friends: req.body.userId } });
+        await sendUser.updateOne({ $push: { friends: req.params.id } });
+        res.status(200).json("add friend successfully");
+      } else {
+        res.status(403).json("you have already been this user's friend");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+//unfriend
+router.put("/:id/unfriend", async (req, res) => {
+  try {
+    const receiveUser = await User.findById(req.params.id);
+    const sendUser = await User.findById(req.body.userId);
+    if (receiveUser.friends.includes(req.body.userId)) {
+      await receiveUser.updateOne({ $pull: { friends: req.body.userId } });
+      await sendUser.updateOne({ $pull: { friends: req.params.id } });
+      res.status(200).json("unfriend successfully");
+    } else {
+      res.status(403).json("you have not already been this user's friend");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
