@@ -30,3 +30,20 @@ router.delete("/:id", async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  //get comments on post
+router.get("/:postId", async (req, res) => {
+    try {
+      const comments = await Comment.find({ postId: req.params.postId });
+      const users = []
+      for(let i=0;i<comments.length;i++){
+        const user = await User.findById(comments[i].userId)
+        users.push(user)
+      }
+      res.status(200).json({comments,users});
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
+  module.exports = router;
