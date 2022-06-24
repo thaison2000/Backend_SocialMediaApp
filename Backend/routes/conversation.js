@@ -42,5 +42,18 @@ router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
   }
 });
 
+// delete conv includes two userId
+
+router.delete("/:firstUserId/:secondUserId", async (req, res) => {
+  try {
+    const conversation = await Conversation.findOne({
+      members: { $all: [req.params.firstUserId, req.params.secondUserId] },
+    });
+    conversation.deleteOne()
+    res.status(200).json('delete conversation successfully')
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
