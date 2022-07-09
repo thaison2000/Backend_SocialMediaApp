@@ -7,16 +7,57 @@
   - [Services](#services)
   
  ## Deployment
- Không sử dụng docker 
+ Không sử dụng docker: 
+ 
  +) Clone code về máy 
  ```
  $ git clone https://github.com/thaison2000/Backend_SocialMediaApp
  ```
+ +) Chạy API GATEWAY
+ ```
+ $ cd .\backend\api_gateway\
+ $ npm install
+ $ npm start
+ ```
+ 
  +) Chạy User Service
  ```
  $ cd .\backend\user_service\
  $ npm install
  $ npm start
+ ```
+ 
+ +) Chạy Post Service
+ ```
+ $ cd .\backend\post_service\
+ $ npm install
+ $ npm start
+ ```
+ 
+ +) Chạy Chat Service
+ ```
+ $ cd .\backend\chat_service\
+ $ npm install
+ $ npm start
+ ```
+ 
+ +) Chạy Socket Service
+ ```
+ $ cd .\backend\socket_service\
+ $ npm install
+ $ npm start
+ ```
+ 
+ Sử dụng Docker:
+ 
+ +) Kéo image về tạo thành các container cho các service
+ ```
+ $ docker-compose build
+ ```
+ 
+ +) Chạy ứng dụng trong Docker
+ ```
+ $ docker-compose up
  ```
  
  ## Documents
