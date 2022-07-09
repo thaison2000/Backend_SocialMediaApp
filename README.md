@@ -7,6 +7,11 @@
   - [Services](#services)
   
  ## Deployment
+ Không sử dụng docker 
+ +) Clone code về máy 
+ ...
+ git clone https://github.com/thaison2000/Backend_SocialMediaApp
+ ...
  
  ## Documents
  
