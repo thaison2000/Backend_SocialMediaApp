@@ -1,0 +1,42 @@
+# Backend_SocialMediaApp
+
+- [Deployment](#deployment)
+- [Documents](#documents)
+  - [Requirements](#requirements)
+  - [UseCases](#usecases)
+  - [Services](#services)
+  
+ ## Deployment
+ 
+ ## Documents
+ 
+ ### Requirements
+ - NodeJS
+ - Socket.io
+ - MongoDB
+ - Docker
+ 
+ ### UseCases
+ - Use Cases for User:
+    + Dang nhap/Dang ky/Dang xuat
+    + Cap nhat thong tin ca nhan
+    + Tao/sua/xoa bai viet
+    + Tim kiem
+    + Ket ban
+    + Nhan tin
+    + Tuong tac voi bai viet(yeu thich, binh luan, chia se)
+    + Nhan thong bao
+ - Use Cases for Admin:
+    + Dang nhap/Dang ky/Dang xuat
+    + Cap nhat thong tin ca nhan
+    + Quan ly tai khoan nguoi dung
+    + Quan ly mang xa hoi
+    
+ ### Services
+ - Chia lam 3 services chinh:
+    + user service
+    + post service
+    + chat service
+    + socket service
+ - Kien truc thiet ke:
+ 
