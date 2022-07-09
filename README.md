@@ -17,6 +17,8 @@
  - Docker
  
  ### UseCases
+ - Use Case Diagram:
+ ![Diagram](docs/usecases_diagram.jpg)
  - Use Cases for User:
     + Dang nhap/Dang ky/Dang xuat
     + Cap nhat thong tin ca nhan
@@ -39,4 +41,5 @@
     + chat service
     + socket service
  - Kien truc thiet ke:
+ ![Diagram](docs/Microservice.jpg)
  
