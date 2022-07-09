@@ -7,7 +7,7 @@
   - [Services](#services)
   
  ## Deployment
- Không sử dụng docker: 
+ - Không sử dụng docker: 
  
  +) Clone code về máy 
  ```
@@ -48,7 +48,7 @@
  $ npm start
  ```
  
- Sử dụng Docker:
+ - Sử dụng Docker:
  
  +) Kéo image về tạo thành các container cho các service
  ```
