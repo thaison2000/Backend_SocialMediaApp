@@ -80,7 +80,7 @@
     + Nhan tin
     + Tuong tac voi bai viet(yeu thich, binh luan, chia se)
     + Nhan thong bao
- - Use Cases for Admin:
+ - Use Cases for Admin: (Dang phat trien)
     + Dang nhap/Dang ky/Dang xuat
     + Cap nhat thong tin ca nhan
     + Quan ly tai khoan nguoi dung
