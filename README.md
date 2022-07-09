@@ -41,5 +41,5 @@
     + chat service
     + socket service
  - Kien truc thiet ke:
- ![Diagram](docs/Microservice.jpg)
+ ![Diagram](docs/Microservice.JPG)
  
